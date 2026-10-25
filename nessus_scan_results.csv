@@ -1,0 +1,36 @@
+Plugin ID,CVE,CVSS v2.0 Base Score,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+19506,,0.0,None,192.168.1.10,tcp,0,Nessus Scan Information,Information about the Nessus scan.,"This plugin displays information about the Nessus scan.",N/A,,Scanner IP: 192.168.1.100
+11219,,0.0,None,192.168.1.10,tcp,0,Nessus SYN scanner,Performs a SYN scan on the target.,This plugin runs a SYN scan to find open ports.,N/A,,Open ports found: 22 80 443
+10881,,0.0,None,192.168.1.10,tcp,22,SSH Protocol Versions Supported,SSH is running on this port.,"The remote SSH daemon supports SSH protocol versions.",N/A,,Supported versions: 2.0
+22964,,0.0,None,192.168.1.10,tcp,80,Service Detection,Detects services running on open ports.,A service was detected on this port.,N/A,,HTTP server detected
+57582,CVE-2011-3192,7.8,High,192.168.1.10,tcp,80,Apache HTTPd: Range Header DoS,"The remote web server is vulnerable to a denial of service attack.","The version of Apache installed on the remote host is affected by a denial of service vulnerability due to how it handles Range headers.","Upgrade Apache to version 2.2.21 or later.",https://httpd.apache.org/security/vulnerabilities_22.html,"Installed version: 2.2.14
+Fixed version: 2.2.21"
+26194,CVE-2007-6750,5.0,Medium,192.168.1.10,tcp,80,Apache HTTP Server Slow HTTP DoS,The remote Apache server may be vulnerable to a slow HTTP DoS attack.,"The Apache HTTP server on the remote host may be vulnerable to a slow HTTP denial of service attack (Slowloris).","Upgrade to Apache 2.2.15 or later, or apply workarounds such as mod_reqtimeout.",https://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html,Nessus verified the server is susceptible to slow HTTP connections.
+10107,CVE-1999-0524,0.0,None,192.168.1.10,icmp,0,HTTP Server Type and Version,A web server is running on the remote host.,"This plugin attempts to determine the type and version of the remote web server.",N/A,,"The remote web server type is:
+Apache/2.2.14 (Ubuntu)"
+33929,,0.0,None,192.168.1.10,tcp,443,SSL Certificate Information,The remote service uses an SSL certificate.,This plugin extracts and displays the SSL certificate.,N/A,,"Subject: CN=192.168.1.10
+Issuer: CN=192.168.1.10
+Valid from: 2023-01-01
+Valid to: 2025-01-01"
+42873,CVE-2009-3555,4.3,Medium,192.168.1.10,tcp,443,SSL Medium Strength Cipher Suites Supported,The remote host supports medium-strength SSL ciphers.,"The remote host supports SSL ciphers offering medium-strength encryption (40-bit or 56-bit).","Reconfigure the server to disable medium-strength cipher suites.",https://www.openssl.org/,"Supported medium-strength ciphers:
+DES-CBC3-SHA  168 bits
+RC4-MD5       128 bits"
+20007,CVE-2014-3566,4.3,Medium,192.168.1.10,tcp,443,SSL Version 2 and 3 Protocol Detection,The remote service uses SSL 2.0 or 3.0 (SSLv3).,"The remote service accepts connections encrypted using SSL 2.0 or 3.0. These versions have known cryptographic flaws (POODLE, DROWN).","Disable SSLv2 and SSLv3 and use TLS 1.2 or higher.",https://www.openssl.org/,"SSLv3 is enabled on this host."
+70658,,0.0,None,192.168.1.20,tcp,0,Nessus Scan Information,Information about the Nessus scan.,"This plugin displays information about the Nessus scan.",N/A,,Scanner IP: 192.168.1.100
+70544,CVE-2014-6271,10.0,Critical,192.168.1.20,tcp,80,Apache Bash Remote Code Execution (Shellshock),"The remote web server is affected by a remote code execution vulnerability.","The remote host is running a version of Bash that is vulnerable to the Shellshock bug. An attacker can exploit this to execute arbitrary commands on the remote host.","Update Bash to the latest version available from the OS vendor.",https://nvd.nist.gov/vuln/detail/CVE-2014-6271,"Bash version: 4.1.2
+The server responded with output from the id command: uid=33(www-data)"
+65821,CVE-2014-0160,7.8,High,192.168.1.20,tcp,443,OpenSSL Heartbleed Information Disclosure,"The remote service is affected by an information disclosure vulnerability.","The remote service is vulnerable to the OpenSSL Heartbleed vulnerability. An attacker can exploit this to expose sensitive information from the server's memory, including private keys and passwords.","Upgrade OpenSSL to version 1.0.1g or later and regenerate all SSL certificates and private keys.",https://heartbleed.com/,"OpenSSL version: 1.0.1e
+The Heartbeat extension is enabled and the server returned data."
+34477,,0.0,None,192.168.1.20,tcp,22,SSH Server CBC Mode Ciphers Enabled,The SSH server is configured to allow CBC mode ciphers.,"The SSH server is configured to support Cipher Block Chaining (CBC) encryption, which may allow an attacker to recover the plaintext message from the ciphertext.","Disable CBC mode ciphers and use CTR or GCM mode ciphers instead.",https://www.openssh.com/,"Supported CBC ciphers:
+aes128-cbc
+aes256-cbc
+3des-cbc"
+10881,,0.0,None,192.168.1.20,tcp,22,SSH Protocol Versions Supported,SSH is running on this port.,"The remote SSH daemon supports SSH protocol versions.",N/A,,Supported versions: 1.99 2.0
+51192,,0.0,None,192.168.1.20,tcp,443,SSL Certificate Cannot Be Trusted,The SSL certificate cannot be trusted.,"The server's SSL certificate is not signed by a trusted certificate authority.","Purchase or obtain a proper SSL certificate signed by a trusted CA.",N/A,,"Issuer: CN=self-signed
+The certificate is self-signed."
+11936,,0.0,None,192.168.1.30,tcp,0,OS Identification,Identifies the operating system.,This plugin attempts to identify the OS of the remote host.,N/A,,"Remote OS: Microsoft Windows Server 2012 R2"
+56468,CVE-2017-0144,9.3,Critical,192.168.1.30,tcp,445,MS17-010: EternalBlue SMB Remote Code Execution,"A critical remote code execution vulnerability exists in Microsoft SMBv1.","The remote Windows host is affected by a remote code execution vulnerability in the SMBv1 server. WannaCry and NotPetya ransomware exploited this flaw.","Apply Microsoft patch MS17-010 immediately. Also disable SMBv1.",https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010,"SMBv1 is enabled and the host is unpatched.
+Risk: CRITICAL - Exploitable remotely without authentication."
+58453,CVE-2012-0002,9.3,Critical,192.168.1.30,tcp,3389,MS12-020: Remote Desktop Protocol Remote Code Execution,"A critical vulnerability exists in Microsoft's Remote Desktop Protocol.","The remote version of RDP is vulnerable to a remote code execution vulnerability. An unauthenticated attacker can exploit this to crash the system or execute arbitrary code.","Apply Microsoft patch MS12-020 immediately.",https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-020,"RDP is running on port 3389 and the system is unpatched."
+62195,CVE-2012-2122,7.5,High,192.168.1.30,tcp,3306,MySQL Authentication Bypass,"An authentication bypass vulnerability exists in MySQL.","The version of MySQL running on the remote host is vulnerable to an authentication bypass. Under certain conditions, a user can gain access without knowing the correct password.","Upgrade MySQL to version 5.1.63, 5.5.24, or 5.6.6 or later.",https://nvd.nist.gov/vuln/detail/CVE-2012-2122,"MySQL version: 5.5.20
+Authentication bypass confirmed."
