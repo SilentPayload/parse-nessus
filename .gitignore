@@ -1,0 +1,17 @@
+# Real scan exports: never commit client data
+*.nessus
+scans/
+exports/
+report.txt
+*.out.csv
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
